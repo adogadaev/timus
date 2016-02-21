@@ -1,0 +1,36 @@
+1. Brute force 
+	2^N
+2. Dynamic Programming
+	O(N*W) where W is maximum weight
+	m[w] = {0,1} -- exist or doesn't exist
+	stone = {1,4,5,6,7,9} -- N values
+	w | m[w] | {excluded set}
+	0   | 1      | default value
+	1   | 1      | 1
+	2   | 0      |
+	3   | 0      |
+	4   | 1      | 4
+	5   | 1      | 5 | 1,4
+	6   | 1      | 6 | 1,5
+	7   | 1      | 7 | 1,6
+	8   | 1      | 1,7
+	9   | 1      | 9 | 4,5
+	10  | 1      | 1,9 | 4,6 | 1,4,5
+	11  | 1      | 4,7 | 5,6 | 1,4,6
+	12  | 1      | 5,7 | 1,4,7 | 1,5,6
+	13  | 1      | 4,9 | 6,7 | 1,5,7
+	14  | 1      | 5,9 | 1,4,9 | 1,6,7
+	15  | 1      | 6,9 | 1,5,9 | 4,5,6
+	16  | 1      | 7,9 | 1,6,9 | 4,5,7 | 1,4,5,6
+
+	MaxW_i = floor(sum(stone_i)/2)
+	for w=0; w<=MaxW_i; w++
+		for i=0; i<N; i++
+			if stone[i] <= w
+				if m[w-stone[i]] == 1 && stone[i] not in {excluded set} of m[w-stone[i]]
+					m[w]=1; put [{excluded set} of m[w-stone[i]] | stone[i]] into {excluded set} of m[w]
+			end
+		end
+	end
+	
+	Output = MaxW_i - 2 * max{w}_{m[w]==1}
