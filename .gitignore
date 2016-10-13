@@ -26,3 +26,11 @@
 *.exe
 *.out
 *.app
+/Debug/
+/Debug_id1000/
+/Debug_id1083/
+/Release_id1083/
+/Debug_id1009/
+/Release_id1009/
+/Release_id1020/
+/Release_id1079/

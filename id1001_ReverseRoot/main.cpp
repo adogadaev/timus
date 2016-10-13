@@ -6,9 +6,9 @@
 using namespace std;
 
 int main() {
-	unsigned long double inval;
-	unsigned long double out;
-	vector <unsigned long double> vin;
+	long double inval;
+	long double out;
+	vector <long double> vin;
 
 	while (cin >> inval) {
 		vin.push_back(sqrt(inval));
