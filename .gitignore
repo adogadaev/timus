@@ -32,7 +32,8 @@
 *.app
 
 # Folders
-/Debug/
+/*Debug/
+/*Release/
 /Debug_id1000/
 /Debug_id1083/
 /Release_id1083/
